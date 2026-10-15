@@ -8,6 +8,7 @@
 <body>
 <header class="topo">
     <h1>NBA Descrições e Curiosidades</h1> 
+    <p>Aqui irei descrever os times e outros pontos interessantes</p>
     <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUydGw0aWJva2htdG4xcGkybHZtaHVrdDd2Mm9tbThmMDZuMTd2NGY2cSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/iPg2OZbNXc7uM/200.gif" alt="NBAgif" class="gifHeader">
       <button class="barrinhas" onclick="abrirMenu()">☰</button>
     </header>
@@ -27,25 +28,43 @@
 
 <script>
     //pega o elemento do html pelo id "leste", adicionando uma animação em seguida
-function girar() {
-    document.getElementById("Leste").style.transform = "rotate(360deg)";
-}
-//mesma coisa, mas com a outra lista
-function girar() {
-    document.getElementById("Oeste").style.transform = "rotate(360deg)";
-}
-//adiciona um "event listener", ou seja, um "evento" para o que o usuário fazer. Seja clicar, passar o cursor por cima..
-Leste.addEventListener("click", function () {
-    Leste.classList.add("girar");
-});
+function abrirMenu() {
+            document.getElementById("menu").classList.toggle("abrir");
+        }
 
-Oeste.addEventListener("click", function () {
-    Oeste.classList.add("girar");
-});
-//"classList" serve para alternar uma classe em um elemento. Se a classe não existe, ele adiciona; se já existe, ele remove. Quando clicar, ativa ou desativa certa classe. No intuito de aparência e não funcionalidade
-function abrirMenu(){
-    document.getElementById("menu").classList.toggle("abrir");
-}
+        // Função genérica para girar qualquer elemento passado como parâmetro
+        function girarElemento(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.classList.toggle("girar");
+            }
+        }
+
+        // Event Listeners nos botões
+        const btnLeste = document.getElementById("botaoLeste");
+        const btnOeste = document.getElementById("botaoOeste");
+
+        if (btnLeste) {
+            btnLeste.addEventListener("click", function () {
+                girarElemento("times-leste");
+            });
+        }
+
+        if (btnOeste) {
+            btnOeste.addEventListener("click", function () {
+                girarElemento("times-oeste");
+            });
+        }
+
+        function zoomImagem() {
+            const imagemZoom = document.getElementById("imagem");
+
+            if(imagemZoom) {
+                imagem.addEventListener("click", function(){
+                    zoomElemento("imagem");
+                })
+            }
+        }
 </script>
 <div id="times-leste">
     <section class="conferencia1">
@@ -65,7 +84,7 @@ function abrirMenu(){
     </ul>
     </section>
 </div>
-    <a href="Pagina 2.html">
+<a href="Pagina 2.html">
     <button id="botaoLeste" onclick="girar()">Confira Aqui Os Times Separadamente!</button>
 </a>
     </section>
